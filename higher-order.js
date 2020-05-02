@@ -20,9 +20,12 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
   (element, index, wholeArray)=>{}    Arrow Form
 */
 
-//Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
-
+let evenNumbers = mixedNumbers.filter(function(element, index, wholeArray){
+  if (element % 2 === 0) {
+    return true
+  }
+}
+)
 
 
 ////////// PROBLEM 2 //////////
@@ -44,7 +47,9 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map(function(element, index, wholeArray){
+  return element * 1.07
+})
 
 
 
@@ -63,7 +68,9 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation = populations.reduce(function(runningTotal, curElement, curIndex, wholeArray){
+  return runningTotal + curElement
+}, 0) 
 
 
 
@@ -89,8 +96,13 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(function(element, index, array) {
+  return element.CP > 200
+})
 
+// if the key of CP of the object at any given index in monstersInYourPocket > 200) {
+//   return the name of that monster (the value of the key called monster at that given index)
+// so filter is an ARRAY method that goes through each item in the array and does what i tell it to do; so in this case, i told it to filter the array monstersInYourPocket which makes each object now be named element and then i told it to go to the key CP at each element and check to see if the value was greater than 200. if it was, then i told it to return that element which = the object and therefore the monsters that all have a CP greater than 200
 
 
 ////////// PROBLEM 5 //////////
@@ -106,7 +118,11 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals // Code here
+let orderTotals = orders.map(function(element){
+  return element.price * (element.tax + 1)
+})
+
+//Yay! i did this one on my own! so for this one, i wanted to make a new array called orderTotals that gave me back the array orders but with the price and tax multiplied together. so the new array is going to have the same number of indexes as the original array so i'll use map to create this array. map goes through each element in the array and does the function i tell it to do. in this case, i told it to go to each element which in this case are the objects in the array and multiply together the keys inside the element (object). i had to add 1 for the correct math and viola!
 
 
 
@@ -126,6 +142,18 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+let bobsTotal = purchases.reduce(function(acc, element){
+  if(element.owner === "Bob"){
+    return acc += element.price
+  }else{ 
+    return acc
+  }
+}, 0)
+
+// reduce
+// with an if statement saying if element.owner = Bob {
+//   return the sum of all the prices
+// }
+//so for this one i need it to get only the elements that have owner=Bob and then i need to take those elements and add together all of their prices.... 
 
 
