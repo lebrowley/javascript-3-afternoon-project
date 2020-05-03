@@ -50,7 +50,17 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+// function employeeUpdater(){
+//   employees.map(function(element, index, array){
+//     if(element.firstName === "Theo"){
+//       employees.splice(index, 1)
+//     }else if(employees.firstName === "Lorie"){
+//       employees.department = "HR"
+//     } 
+//     })
+//   }
+
+//loop through the array and check each object to see if they have specific keys: first a key with value "Theo" and second a key with value "Lorie". If the key(element).firstName has a value of "Theo", splice it, or remove it completely from the array. If the key.firstName has a value of "Lorie" update the key to say "HR". Now take all these changes and return employees in its updated form (.map returns the array)
 
 
 
@@ -68,7 +78,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+// function removeDuplicates(arr, name, cb){
+//   for(let i=0; i <= arr.length-1; i++){
+//     for(let j=workplaceAccidents.length-1; j > i; j--){
+//       if(arr[i] === arr[j]){
+//         arr.splice(j, 1)
+//       }
+//     }
+//   }
+//   return workplaceAccidents
+// }
 
 
 
@@ -97,8 +116,10 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+// var grumpyActivity;
+// var fluffy2ndFriend;
+
+// cat.catfriend[activities].
 
 
 
@@ -138,7 +159,15 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner(){
+  myCar.accidents.forEach(function(element){
+    if(element.atFaultForAccident === true) {
+      element.atFaultForAccident = false
+    }
+    
+  })
+  return recordCleaner
+}
 
 
 
@@ -157,6 +186,20 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+function looper(arr){
+   for(let i=0; i <= arr.length -1; i++){
+     for(let j=0; j <= arr[i].length-1; j++){
+       if(arr[i][j] % 2 === 0){
+         arr[i].splice(j, 1, "even")
+       }else {
+         arr[i].splice(j, 1, "odd")
+       }
+      }
+    }
+    return arr
+  }
+  looper(numsArr)
+
+// numsArr. some looper that will stop at each index, then go into the array there and check all the numbers to see if they're even or not. of the number is odd, replace it with string 'odd'. if number is even, replace it with string 'even'. returned the modified numsArr
 
 
