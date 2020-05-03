@@ -21,7 +21,12 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
+const color = carDetails.color
+const make = carDetails.make
+const model = carDetails.model 
+const year = carDetails.year
+
+// I'm not sure if this is what is meant by "use object destructuring". is there a different notation i should have used?
 
 
 
@@ -34,8 +39,9 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
-  
+  let firstName= obj.firstName
+  let lastName= obj.lastName
+  let title= obj.title
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -53,7 +59,13 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+function totalPopulation(obj){
+  let utah = obj.utah
+  let california = obj.california
+  let texas = obj.texas
+  let arizona = obj.arizona
+  return utah + california + texas + arizona
+}
 
 
 
@@ -67,7 +79,16 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+function ingredients(obj) {
+  carb = obj.carb
+  fat = obj.fat
+  protein = obj.protein
+  return Object.values(obj)
+}
+
+
+//this one had me pass in an object, assign its keys to the variable names provided (carb, protein, and fat) and then take that object and make it into an array that contains just the values of the keys in the object. were the two steps connected? did the keys need to be assigned to new variables in order to make an array out of their values? 
+
 
 
 
@@ -85,8 +106,17 @@ function greeting( obj ) {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
+function largeNumbers({first, second, third}) {
+  if(first < second && first < third){
+    return first 
+  }else if(second < first && second < third){
+    return second
+  }else if(third < first && third < second){
+    return third
+  }
+}
 
+//is there a cleaner way of doing this? shorter?
 
 
 ////////// PROBLEM 6 //////////
@@ -97,6 +127,16 @@ function greeting( obj ) {
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups({a, b, c}){
+  if(a.length > b.length && a.length > c.length){
+    return a
+  }else if(b.length > a.length && b.length > c.length){
+    return b 
+  }else if(c.length > a.length && c.length > a.length){
+    return c
+  }
+}
+
+//again, is there a simpler (fancier) way of writing this?
 
 
