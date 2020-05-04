@@ -39,13 +39,17 @@ for(var key in values) {
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  for(let key in obj) {
-     
+function showValues(object) {
+  for(let key in object) {
+    if(object[key] !== false){
+      return `${object[key]} `
+    } else{
+      return 'wrong sentence'
+    }
   }
 }
 
-// showValues(values)
+
 
 
 ////////// PROBLEM 2 //////////
@@ -56,15 +60,17 @@ function showValues( obj ) {
   Return the updated object.
 */
 
+
 function greaterThan10(object){
   for(let key in object) {
-    if (object.key === 10){
-      object.key = 0
+    if (object[key] > 10){
+      object[key] = 0
     }
   }
   return object
 }
 
+//because I need to access the info ON the key, I need to tell it to dig down into those levels. so go to object and then go into the key on that object. see if the info on that key is greater than 10. if it is, reset it to equal 0. i have to use bracket notation because the actual names of the keys are unknown but i told it in my for in loop that we're going to call those "key". since key is a variable, have to use bracket notation in order for it to know i want to go into the keys on the object.
 
 
 
@@ -76,11 +82,11 @@ function greaterThan10(object){
   Return the updated object.
 */
 
-function double(obj){
-  for(let key in obj){
-    obj.key * 2
+function double(object){
+  for(let key in object){
+    object[key] = object[key] * 2
   }
-  return obj
+  return object
 }
 
 
@@ -95,13 +101,17 @@ function double(obj){
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
-function secrets(obj){
+function secrets(object){
   let string= ""
-  for(let key in obj){
-
+  for(let key in object){
+    if(object[key].substring(0,2) == "sh"){
+      string += `${object[key]} `
+  
+    }}
+    return string
   }
-}
-
+ 
+  //this works on repl..... why doesn't it work here?
 
 
 /* 
@@ -155,20 +165,12 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-  // for (let key in deleteTheBigNumbers){
-  //   if(deleteTheBigNumbers.key > 100) {
-  //     delete deleteTheBigNumbers.key
-  //   }
-  // }
 
   for(var key in deleteTheBigNumbers){
     if(deleteTheBigNumbers[key] > 100){
       delete deleteTheBigNumbers[key]
     }
   }
-
-// why does using bracket notation work over using dot notation in this situation?
-//also why does the console return true? 
 
 
 ////////// PROBLEM 7 //////////
@@ -180,12 +182,16 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-function startsWithK(obj){
-  for(var key in obj){
-    if(obj[key[0]] === "k")
-    delete obj[key]
+
+function startsWithK(object){
+  for(let key in object){
+    if(object[key].substring(0,1) === "k")
+    delete object[key]
   }
+  return object
 }
+
+//this works on repl; why doesn't it work here?
 
 // i want to get into the object and then to the keys and then into the first indexed character of that string (the value on the key). if it is equal to k, i want the entire key deleted from the object
 
@@ -201,16 +207,15 @@ function startsWithK(obj){
   (hint: the method includes() may be of use...)
 */
 
-function hiddenTreasure(obj){
-  for(key in obj){
-    if(obj.key.includes('treasure')){
-      return obj
-    }else {
-      delete obj.key
-    }
+
+function hiddenTreasure(object){
+  for(let key in object){
+    if(object[key].indexOf("treasure") === -1){
+      delete object[key]
+    }}
+    return object
   }
-  return obj
-}
+
 
 //i want to see if the keys on the object include the string 'treasure'. If they do, I don't want it to do anything to change that. But if they don't, I want it to delete that key. After it has going through every item, I want it to return an updated object to me
 
