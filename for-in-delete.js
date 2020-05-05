@@ -40,14 +40,13 @@ for(var key in values) {
 */
 
 function showValues(object) {
+  let string = ""
   for(let key in object) {
-    if(object[key] !== false){
-      return `${object[key]} `
-    } else{
-      return 'wrong sentence'
-    }
+      string += object[key]
+    } 
+    return string
   }
-}
+
 
 
 
@@ -104,13 +103,15 @@ function double(object){
 function secrets(object){
   let string= ""
   for(let key in object){
-    if(object[key].substring(0,2) == "sh"){
-      string += `${object[key]} `
+    if(key.startsWith('sh')){
+      string += object[key]
   
     }}
     return string
   }
  
+
+  // why didn't we need object[key] in the if statement??
   //this works on repl..... why doesn't it work here?
 
 
@@ -185,7 +186,7 @@ var deleteTheBigNumbers = {
 
 function startsWithK(object){
   for(let key in object){
-    if(object[key].substring(0,1) === "k")
+    if(key.startsWith("k"))
     delete object[key]
   }
   return object

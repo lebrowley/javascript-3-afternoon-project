@@ -83,43 +83,32 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 
-// function removeDuplicates(arr){
-//   for(let i=0; i <= arr.length; i++){
-//     for(let j=arr.length; j > i; j--){
-//       if(arr.indexOf(j) === -1){
-//         arr.splice(j,1)
-//       }
+function removeDuplicates(arr){
+  for(let i=0; i < arr.length; i++){
+    for(let j=arr.length-1; j > i; j--){
+      if(arr[i]=== arr[j]){
+        arr.splice(j,1)
+      }
       
-//       // if(arr[i] === arr[j]){
-//       //   arr.splice(j, 1)
-//       // }
+    }
+  }
+  return arr
+}
+removeDuplicates(workplaceAccidents)
+
+
+// function removeDuplicates(array){
+//   workplaceAccidents.forEach(function(element, index){
+//     for(let j=array.length-1; j > index; j--){
+//       if(j === element){
+//         workplaceAccidents.splice(j, 1)
+//       }
 //     }
-//   }
+//   })
 //   return workplaceAccidents
 // }
 
 
-
-function removeDuplicates(array){
-  workplaceAccidents.forEach(function(element, index){
-    for(let j=array.length-1; j >= 0; j--){
-      if(j === element.index){
-        workplaceAccidents.splice(j, 1)
-      }
-    }
-  })
-  return workplaceAccidents
-}
-
-
-// const removeDuplicates = workplaceAccidents.reduce(function(acc, element, index, array) {
-//   for(let i=array.length-1; i >= 0; i--){
-//     if(array.index === i){
-//       array.splice(index, 1)
-//     }
-//   }
-//   return array
-//   })
 
 
 ////////// PROBLEM 3 //////////
@@ -218,36 +207,36 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 
-function looper(array){
-  array.forEach(function(element, index){
-    for(let i=0; i >= element.length; i++){
-      if(element[index][i] % 2 === 0){
-        element.splice(i, 1, 'even')
-      }else {
-        element.splice(i, 1, 'odd')
-      }
-    }
-  })
-  return array
-}
-
-looper(numsArr)
-
-
-
-// function looper(arr){
-//    for(let i=0; i <= arr.length -1; i++){
-//      for(let j=0; j <= arr[i].length-1; j++){
-//        if(arr[i][j] % 2 === 0){
-//          arr[i].splice(j, 1, "even")
-//        }else {
-//          arr[i].splice(j, 1, "odd")
-//        }
+// function looper(){
+//   array.forEach(function(element, index){
+//     for(let i=0; i >= element.length; i++){
+//       if(element[index][i] % 2 === 0){
+//         element.splice(i, 1, 'even')
+//       }else {
+//         element.splice(i, 1, 'odd')
 //       }
 //     }
-//     return arr
-//   }
-//   looper(numsArr)
+//   })
+//   return array
+// }
+
+// looper(numsArr)
+
+
+
+const looper= () => {
+   for(let i=0; i < numsArr.length; i++){
+     for(let j=0; j < numsArr[i].length; j++){
+       if(numsArr[i][j] % 2 === 0){
+         numsArr[i][j] = "even"
+       }else if (numsArr[i][j] % 2 !=0) {
+         numsArr[i][j]= "odd"
+       }
+      }
+    }
+    return numsArr
+  }
+  
 
 // numsArr. some looper that will stop at each index, then go into the array there and check all the numbers to see if they're even or not. of the number is odd, replace it with string 'odd'. if number is even, replace it with string 'even'. returned the modified numsArr
 
